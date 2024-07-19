@@ -7751,17 +7751,17 @@ mkdirp2@^1.0.4:
   resolved "https://registry.npmjs.org/mkdirp2/-/mkdirp2-1.0.5.tgz"
   integrity sha512-xOE9xbICroUDmG1ye2h4bZ8WBie9EGmACaco8K8cx6RlkJJrxGIqjGqztAI+NMhexXBcdGbSEzI6N3EJPevxZw==
 
-mobx-react-lite@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-1.4.0.tgz"
-  integrity sha512-5xCuus+QITQpzKOjAOIQ/YxNhOl/En+PlNJF+5QU4Qxn9gnNMJBbweAdEW3HnuVQbfqDYEUnkGs5hmkIIStehg==
+mobx-react-lite@^2.2.0:
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-2.2.2.tgz"
+  integrity sha512-2SlXALHIkyUPDsV4VTKVR9DW7K3Ksh1aaIv3NrNJygTbhXe2A9GrcKHZ2ovIiOp/BXilOcTYemfHHZubP431dg==
 
-mobx-react@^6:
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-6.0.0.tgz"
-  integrity sha512-/c7WBPB9jEmK38ZVQG+YMca8JD4mTwei7ieHh3oAv8RYZvHoCBXOS+haeeFh0kZ9cmdtDxyUhth0WMPrdlC3og==
+mobx-react@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-6.3.1.tgz"
+  integrity sha512-IOxdJGnRSNSJrL2uGpWO5w9JH5q5HoxEqwOF4gye1gmZYdjoYkkMzSGMDnRCUpN/BNzZcFoMdHXrjvkwO7KgaQ==
   dependencies:
-    mobx-react-lite "1.4.0"
+    mobx-react-lite "^2.2.0"
 
 mobx-state-tree@^3.16.0:
   version "3.17.3"
