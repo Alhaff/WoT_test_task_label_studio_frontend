@@ -69,13 +69,14 @@ import { Buckets } from '../examples/ranker_buckets';
 
 import { TimeSeries } from '../examples/timeseries';
 import { TimeSeriesSingle } from '../examples/timeseries_single';
-import { ImageBbox as ImgBbox } from '../examples/image_bbox';
+import { ClassificationMixed } from '../examples/classification_mixed';
+
 /**
- * Custom Datad
+ * Custom Data
  */
 // import { AllTypes } from "../examples/all_types";
 
-const data = ImgBbox;
+const data = ImageBbox;
 
 function getData(task) {
   if (task && task.data) {
