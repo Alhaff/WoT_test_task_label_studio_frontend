@@ -70,13 +70,13 @@ import { Buckets } from '../examples/ranker_buckets';
 import { TimeSeries } from '../examples/timeseries';
 import { TimeSeriesSingle } from '../examples/timeseries_single';
 import { ClassificationMixed } from '../examples/classification_mixed';
-
+import { LocalStorageImageBbox } from '../my_examples/local_image_bbox';
 /**
  * Custom Data
  */
 // import { AllTypes } from "../examples/all_types";
 
-const data = ImageBbox;
+const data = LocalStorageImageBbox;
 
 function getData(task) {
   if (task && task.data) {
