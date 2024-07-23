@@ -62,14 +62,14 @@ const Composition = types.compose(
 
 const RectangleLabelsModel = types.compose('RectangleLabelsModel', Composition).views(self => {
   return {
-      fillopacity(v){
-        self.fillopacity = v
+      afterCreate()
+      {
+        self.fillopacity = 0.0
       }
   }
 });
 
 const HtxRectangleLabels = observer(({ item }) => {
-  item.fillopacity(0.0);
   addMiddleware(item.annotation, (call, next, abort) => 
   {
       if(call.name == "onClickRegion")
@@ -78,7 +78,6 @@ const HtxRectangleLabels = observer(({ item }) => {
         const ev = e?.evt || e;
         const isDoubleClick = ev.detail === 2;
         if (isDoubleClick) {
-          
           call.context.deleteRegion()
           return abort()
         }  
