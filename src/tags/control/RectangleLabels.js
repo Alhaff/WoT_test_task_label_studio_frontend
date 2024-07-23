@@ -60,9 +60,16 @@ const Composition = types.compose(
   SelectedModelMixin.props({ _child: 'LabelModel' }),
 );
 
-const RectangleLabelsModel = types.compose('RectangleLabelsModel', Composition);
+const RectangleLabelsModel = types.compose('RectangleLabelsModel', Composition).views(self => {
+  return {
+      fillopacity(v){
+        self.fillopacity = v
+      }
+  }
+});
 
 const HtxRectangleLabels = observer(({ item }) => {
+  item.fillopacity(0.0);
   addMiddleware(item.annotation, (call, next, abort) => 
   {
       if(call.name == "onClickRegion")
