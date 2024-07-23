@@ -109,16 +109,18 @@ export const KonvaRegionMixin = types.model({})
         const annotation = self.annotation;
         const ev = e?.evt || e;
         const additiveMode = ev?.ctrlKey || ev?.metaKey;
+
         if (e) e.cancelBubble = true;
-        if (true) {
+
+        if (isFF(FF_DBLCLICK_DELAY)) {
           const isDoubleClick = ev.detail === 2;
 
           if (isDoubleClick) {
-            
             self.onDoubleClickRegion();
             return;
           }
         }
+
         const selectAction = () => {
           self._selectArea(additiveMode);
           deferredSelectId = null;
@@ -153,8 +155,7 @@ export const KonvaRegionMixin = types.model({})
         self.requestPerRegionFocus();
         // `selectArea` does nothing when there's a selected region already, but it should rerender to make `requestPerRegionFocus` work,
         // so it needs to use `selectAreas` instead. It contains `unselectAll` for this purpose.
-        self.annotation.unselectAll([self]);
-        self.deleteRegion()
+        self.annotation.selectAreas([self]);
       },
     };
   });
