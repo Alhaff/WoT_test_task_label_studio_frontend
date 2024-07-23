@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { types } from 'mobx-state-tree';
-
+import { addMiddleware } from "mobx-state-tree";
 import LabelMixin from '../../mixins/LabelMixin';
 import Registry from '../../core/Registry';
 import SelectedModelMixin from '../../mixins/SelectedModel';
@@ -63,8 +63,24 @@ const Composition = types.compose(
 const RectangleLabelsModel = types.compose('RectangleLabelsModel', Composition);
 
 const HtxRectangleLabels = observer(({ item }) => {
-  return <HtxLabels item={item} />;
+  addMiddleware(item.annotation, (call, next, abort) => 
+  {
+      if(call.name == "onClickRegion")
+      {
+        const e = call.args[0];
+        const ev = e?.evt || e;
+        const isDoubleClick = ev.detail === 2;
+        if (isDoubleClick) {
+          
+          call.context.deleteRegion()
+          return abort()
+        }  
+      }
+      next(call)
+  });
+  return <HtxLabels item={item}/>;
 });
+
 
 Registry.addTag('rectanglelabels', RectangleLabelsModel, HtxRectangleLabels);
 
